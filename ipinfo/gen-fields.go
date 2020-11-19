@@ -36,7 +36,6 @@ func main() {
 	for pkgName, pkg := range pkgs {
 		t := &templateData{
 			filename: pkgName + fileSuffix,
-			Year:     time.Now().Year(),
 			Package:  pkgName,
 		}
 		for filename, f := range pkg.Files {
@@ -112,7 +111,6 @@ func newGetter(fieldName, fieldTag string) *getter {
 
 type templateData struct {
 	filename string
-	Year     int
 	Package  string
 	Getters  []*getter
 }
