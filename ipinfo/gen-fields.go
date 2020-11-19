@@ -11,7 +11,7 @@ import (
 )
 
 type templateData struct {
-	Getters  []*Getter
+	Getters []*Getter
 }
 
 type Getter struct {
@@ -78,39 +78,39 @@ func main() {
 		Getters: []*Getter{
 			&Getter{
 				Name: "Hostname",
-				Tag: "hostname",
+				Tag:  "hostname",
 			},
 			&Getter{
 				Name: "Organization",
-				Tag: "org",
+				Tag:  "org",
 			},
 			&Getter{
 				Name: "City",
-				Tag: "city",
+				Tag:  "city",
 			},
 			&Getter{
 				Name: "Region",
-				Tag: "region",
+				Tag:  "region",
 			},
 			&Getter{
 				Name: "Country",
-				Tag: "country",
+				Tag:  "country",
 			},
 			&Getter{
 				Name: "Location",
-				Tag: "loc",
+				Tag:  "loc",
 			},
 			&Getter{
 				Name: "Phone",
-				Tag: "phone",
+				Tag:  "phone",
 			},
 			&Getter{
 				Name: "Postal",
-				Tag: "postal",
+				Tag:  "postal",
 			},
 			&Getter{
 				Name: "Timezone",
-				Tag: "timezone",
+				Tag:  "timezone",
 			},
 		},
 	}
