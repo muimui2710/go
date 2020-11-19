@@ -33,13 +33,13 @@ type Geo struct {
 	Timezone string `json:"timezone"`
 }
 
-// GetInfo returns full details for the specified IP. If nil was provieded
+// GetInfo returns full details for the specified IP. If nil was provided
 // instead of ip, it returns details for the caller's own IP.
 func GetInfo(ip net.IP) (*Info, error) {
 	return c.GetInfo(ip)
 }
 
-// GetInfo returns full details for the specified IP. If nil was provieded
+// GetInfo returns full details for the specified IP. If nil was provided
 // instead of ip, it returns details for the caller's own IP.
 func (c *Client) GetInfo(ip net.IP) (*Info, error) {
 	var s string
@@ -69,13 +69,13 @@ func (c *Client) requestInfo(s string) (*Info, error) {
 }
 
 // GetGeo returns geolocation information for the specified IP. If nil was
-// provieded instead of ip, it returns details for the caller's own IP.
+// provided instead of ip, it returns details for the caller's own IP.
 func GetGeo(ip net.IP) (*Geo, error) {
 	return c.GetGeo(ip)
 }
 
 // GetGeo returns geolocation information for the specified IP. If nil was
-// provieded instead of ip, it returns details for the caller's own IP.
+// provided instead of ip, it returns details for the caller's own IP.
 func (c *Client) GetGeo(ip net.IP) (*Geo, error) {
 	s := "geo"
 	if ip != nil {
