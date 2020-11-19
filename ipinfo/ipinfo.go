@@ -1,6 +1,6 @@
 //go:generate go run gen-fields.go
 
-package ipinfo // import "github.com/ipinfo/go-ipinfo/ipinfo"
+package ipinfo // import "github.com/ipinfo/go/ipinfo"
 
 import (
 	"bytes"

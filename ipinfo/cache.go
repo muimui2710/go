@@ -1,9 +1,9 @@
-package ipinfo // import "github.com/ipinfo/go-ipinfo/ipinfo"
+package ipinfo // import "github.com/ipinfo/go/ipinfo"
 
 import (
 	"sync"
 
-	"github.com/ipinfo/go-ipinfo/ipinfo/cache"
+	"github.com/ipinfo/go/ipinfo/cache"
 )
 
 type Cache struct {
