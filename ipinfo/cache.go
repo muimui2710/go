@@ -19,7 +19,7 @@ type EvaluatorFunc func() (interface{}, error)
 
 func (c *Cache) GetOrRequest(
     key string,
-    evaluator EvaluatorFunc
+    evaluator EvaluatorFunc,
 ) (interface{}, error) {
 	value, _ := c.requestLocks.LoadOrStore(key, &sync.Mutex{})
 	mutex := value.(*sync.Mutex)
