@@ -30,6 +30,7 @@ type Geo struct {
 	Location string `json:"loc"`
 	Phone    string `json:"phone"`
 	Postal   string `json:"postal"`
+	Timezone string `json:"timezone"`
 }
 
 // GetInfo returns full details for the specified IP. If nil was provieded

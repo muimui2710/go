@@ -326,3 +326,43 @@ func (c *Client) requestPostal(s string) (string, error) {
 	}
 	return v.String(), nil
 }
+
+// GetTimezone returns a specific field "timezone" value from the
+// API for the provided ip. If nil was provided instead of ip, it returns
+// details for the caller's own IP.
+func GetTimezone(ip net.IP) (string, error) {
+	return c.GetTimezone(ip)
+}
+
+// GetTimezone returns a specific field "timezone" value from the
+// API for the provided ip. If nil was provided instead of ip, it returns
+// details for the caller's own IP.
+func (c *Client) GetTimezone(ip net.IP) (string, error) {
+	s := "timezone"
+	if ip != nil {
+		s = ip.String() + "/" + s
+	}
+	if c.Cache == nil {
+		return c.requestTimezone(s)
+	}
+	v, err := c.Cache.GetOrRequest(s, func() (interface{}, error) {
+		return c.requestTimezone(s)
+	})
+	if err != nil {
+		return "", err
+	}
+	return v.(string), err
+}
+
+func (c *Client) requestTimezone(s string) (string, error) {
+	req, err := c.NewRequest(s)
+	if err != nil {
+		return "", err
+	}
+	v := new(bytes.Buffer)
+	_, err = c.Do(req, v)
+	if err != nil {
+		return "", err
+	}
+	return v.String(), nil
+}
