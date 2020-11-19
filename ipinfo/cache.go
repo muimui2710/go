@@ -17,7 +17,10 @@ func NewCache(engine cache.Interface) *Cache {
 
 type EvaluatorFunc func() (interface{}, error)
 
-func (c *Cache) GetOrRequest(key string, evaluator EvaluatorFunc) (interface{}, error) {
+func (c *Cache) GetOrRequest(
+    key string,
+    evaluator EvaluatorFunc
+) (interface{}, error) {
 	value, _ := c.requestLocks.LoadOrStore(key, &sync.Mutex{})
 	mutex := value.(*sync.Mutex)
 	mutex.Lock()

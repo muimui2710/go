@@ -67,14 +67,14 @@ func (c *Client) requestInfo(s string) (*Info, error) {
 	return v, err
 }
 
-// GetGeo returns geolocation information for the specified IP. If nil was provieded
-// instead of ip, it returns details for the caller's own IP.
+// GetGeo returns geolocation information for the specified IP. If nil was
+// provieded instead of ip, it returns details for the caller's own IP.
 func GetGeo(ip net.IP) (*Geo, error) {
 	return c.GetGeo(ip)
 }
 
-// GetGeo returns geolocation information for the specified IP. If nil was provieded
-// instead of ip, it returns details for the caller's own IP.
+// GetGeo returns geolocation information for the specified IP. If nil was
+// provieded instead of ip, it returns details for the caller's own IP.
 func (c *Client) GetGeo(ip net.IP) (*Geo, error) {
 	s := "geo"
 	if ip != nil {
